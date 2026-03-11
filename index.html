@@ -3,32 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GadgetZu Loyalty</title>
+    <title>GadgetZu Loyalty Manager</title>
     <style>
-        body { font-family: sans-serif; background: #001f3f; color: white; text-align: center; padding: 20px; }
-        .box { background: white; color: black; padding: 20px; border-radius: 15px; max-width: 320px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        h2 { color: #001f3f; margin-bottom: 20px; }
-        input { width: 85%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
-        button { background: #FF851B; color: white; border: none; padding: 12px; font-weight: bold; width: 93%; border-radius: 8px; cursor: pointer; font-size: 16px; }
-        .res { margin-top: 20px; padding: 10px; border-top: 1px solid #eee; text-align: left; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .app-card { background: white; width: 90%; max-width: 360px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; border-top: 5px solid #003366; }
+        .header { background: #003366; color: white; padding: 20px; text-align: center; }
+        .header h1 { margin: 0; font-size: 22px; letter-spacing: 1px; }
+        .content { padding: 25px; }
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; background: #FF6600; color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #e65c00; }
+        .result-box { margin-top: 20px; padding: 15px; background: #eef2f7; border-radius: 10px; display: none; }
+        .footer { text-align: center; padding: 15px; font-size: 12px; color: #777; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h2>GadgetZu Loyalty</h2>
-        <input type="text" id="cid" placeholder="Customer ID লিখুন">
-        <button onclick="src()">তথ্য দেখুন</button>
-        <div id="out" class="res"></div>
+    <div class="app-card">
+        <div class="header">
+            <h1>GadgetZu</h1>
+            <p style="margin:5px 0 0; font-size:12px;">Loyalty Manager</p>
+        </div>
+        <div class="content">
+            <input type="text" id="custId" placeholder="Enter Customer ID">
+            <button onclick="checkData()">SEARCH CUSTOMER</button>
+            <div id="result" class="result-box"></div>
+        </div>
+        <div class="footer">Tech That Fits Your Life</div>
     </div>
+
     <script>
-        function src() {
-            let id = document.getElementById('cid').value;
-            let out = document.getElementById('out');
+        function checkData() {
+            let id = document.getElementById('custId').value;
+            let res = document.getElementById('result');
             if(id) {
-                out.innerHTML = "<b>ID:</b> " + id + "<br><b>Balance:</b> 0 TK<br><b>Status:</b> Silver";
-            } else { alert("ID লিখুন"); }
+                res.style.display = 'block';
+                res.innerHTML = "<strong>ID:</strong> " + id + "<br><strong>Points:</strong> 0<br><strong>Tier:</strong> Silver";
+            } else { alert("Please enter an ID"); }
         }
     </script>
 </body>
-</html>
-
+    </html>
+    
