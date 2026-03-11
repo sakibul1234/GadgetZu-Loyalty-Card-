@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-blue: #1a202c;
+  --color-brand-orange: #f97316;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+.ranking-platinum {
+  @apply bg-violet-600 text-white;
+}
+
+.ranking-green {
+  @apply bg-emerald-500 text-white;
+}
+
+.ranking-gold {
+  @apply bg-amber-500 text-white;
+}
+
+.ranking-silver {
+  @apply bg-slate-400 text-white;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
